@@ -12,18 +12,13 @@ def index():
 
 @app.route("/sms", methods=['POST'])
 def sms_reply():
-    """Respond to incoming calls with a simple text message."""
-    # Fetch the message
-    msg = request.form.get('Body')
 
-    # Create reply
+    msg = request.form.get('Body').lower()
     resp = MessagingResponse()
 
 
-    if '--Tasks'.lower() in msg:
-        resp.message(f'Hello!')
-
-
+    if msg == 'hello': 
+        resp.message('hi!')
 
     return str(resp)
 
