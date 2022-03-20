@@ -41,7 +41,7 @@ def answer_call():
 
     # Start our <Gather> verb
     gather = Gather(num_digits=1, action='/gather')
-    gather.say('For sales, press 1. For support, press 2.')
+    gather.say('To know more about the medicine press 1') # press 2 for 2nd medicine 
     resp.append(gather)
 
 
@@ -65,10 +65,10 @@ def gather():
 
         # <Say> a different message depending on the caller's choice
         if choice == '1':
-            resp.say('You selected sales. Good for you!')
+            resp.say('This medicine is used for non productive cough Dosage: Adults and children >12 years: 2 tsps (10 mL) 3 times daily. 6-12 years: 1 tsp (5 mL) 3 times daily. Special precautions: Special precaution is needed in GI ulceration patients.Guaifenesin gives a false positive result of urinary 5-hydroxyindoleacetic acid (5-HIAA) and vanyllilmandelic acid (VMA).Use in pregnancy & lactation: Precaution is advised for pregnant and lactating mothers. Adverse reactions might include: vomitting, dizziness, drowsiness and constipation')
             return str(resp)
         elif choice == '2':
-            resp.say('You need support. We will help!')
+            resp.say('his medicine is used for Nasal Decongestan. Contraindications: Hyperthyroidism, HTN, coronary disease, pheochromocytoma, closed-angle glaucoma; MAOIs; lower resp tract disease. Newborn or premature infants. Lactation. Special precautions: Not recommended for anyone with kidney and liver problems. Adverse reactions might include: GI disorders, difficulty in micturition, muscular weakness, tremor, hypotension, blurred vision, tinnitus, dry mouth, tightness of the chest; sweating, thirst, anorexia.')
             return str(resp)
         else:
             # If the caller didn't choose 1 or 2, apologize and ask them again
