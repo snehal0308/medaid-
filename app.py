@@ -21,9 +21,14 @@ def sms_reply():
     resp = MessagingResponse()
 
 
-    if '--Tasks'.lower() in msg:
-        resp.message(f'Hello!')
-
+    if 'Hi'.lower() in msg:
+        resp.message(f'Hi there! I am Mediaid bot. Please type --help to access all the commands')
+    if 'help'.lower() in msg: 
+        resp.message(f"COMMANDS \n '--[medicine name]: to get info on a specific medicine \n '--Issue resolved: to mark your issue as resolved'")
+    if '--woods peppermint'.lower() in msg: 
+        resp.message(f"This medicine is used for non productive cough \n \n Dosage: Adults and children >12 years: 2 tsps (10 mL) 3 times daily. 6-12 years: 1 tsp (5 mL) 3 times daily.\n \n Special precautions: Special precaution is needed in GI ulceration patients.Guaifenesin gives a false positive result of urinary 5-hydroxyindoleacetic acid (5-HIAA) and vanyllilmandelic acid (VMA).Use in pregnancy & lactation: Precaution is advised for pregnant and lactating mothers.' \n \n Adverse reactions might include: vomitting, dizziness, drowsiness and constipation")
+    if '--nalgestan'.lower() in msg: 
+        resp.message(f"This medicine is used for Nasal Decongestan \n \n Contraindications: Hyperthyroidism, HTN, coronary disease, pheochromocytoma, closed-angle glaucoma; MAOIs; lower resp tract disease. Newborn or premature infants. Lactation. \n \n Special precautions: Not recommended for anyone with kidney and liver problems \n \n Adverse reactions might include: GI disorders, difficulty in micturition, muscular weakness, tremor, hypotension, blurred vision, tinnitus, dry mouth, tightness of the chest; sweating, thirst, anorexia.")
 
 
     return str(resp)
@@ -36,7 +41,7 @@ def answer_call():
 
     # Start our <Gather> verb
     gather = Gather(num_digits=1, action='/gather')
-    gather.say('For med1, press 1. For med2, press 2.')
+    gather.say('For sales, press 1. For support, press 2.')
     resp.append(gather)
 
 
@@ -60,10 +65,10 @@ def gather():
 
         # <Say> a different message depending on the caller's choice
         if choice == '1':
-            resp.say('You selected medicine 1 . ')
+            resp.say('You selected sales. Good for you!')
             return str(resp)
         elif choice == '2':
-            resp.say('You selected medicine 2. ')
+            resp.say('You need support. We will help!')
             return str(resp)
         else:
             # If the caller didn't choose 1 or 2, apologize and ask them again
@@ -77,3 +82,14 @@ def gather():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+
+
+
+
+
+
+
+    
